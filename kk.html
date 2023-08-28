@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enigma - Personal Webpage</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif; /* Change font to Times New Roman */
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            min-height: 100vh; /* Ensure content takes full viewport height */
+            filter: none; /* Remove default blur */
+        }
+        header {
+            font-family: 'Times New Roman', serif; /* Change font to Times New Roman */
+            background-color: rgb(255, 255, 255);
+            color: rgb(8, 8, 8);
+            text-align: center;
+            padding: 1rem;
+            width: auto; /* Adjusted width */
+            max-width: 400px; /* Set maximum width */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+            position:sticky; /* Add relative positioning to header */
+            z-index: 1; /* Set z-index to make header appear on top */
+            transition: transform 0.3s ease; /* Add transition for zoom effect */
+            transform: scale(1); /* Initial zoom effect */
+        }
+        header:hover {
+            background-color: #000000;
+            color: white; /* Change text color to white */
+            transform: scale(2); /* Increase zoom effect on hover */
+            box-shadow: 0px 20px 40px rgb(0, 0, 0);
+        }
+        .container {
+            font-family: 'Times New Roman', serif; /* Change font to Times New Roman */
+            flex: 1; /* Take remaining width */
+            max-width: 800px;
+            margin: 40px 40px; /* Adjust margins */
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative; /* Add relative positioning to container */
+            z-index: 0; /* Lower z-index to ensure header appears on top */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, filter 0.3s ease; /* Add transitions for background-color, box-shadow, width, and filter */
+        }
+
+
+        .welcome-container {
+        text-align: center;
+        padding: 2rem;
+        background-color: rgb(0, 0, 0);
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 0;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+        font-family: 'Times New Roman', serif; /* Change font to Times New Roman */
+        font-size: 2rem;
+        font-weight: bold;
+        }
+
+        .welcome-container:hover {
+        text-align: center;
+        padding: 2rem;
+        background-color: rgb(0, 0, 0);
+        border-radius: 30px;
+        box-shadow: 0px 20px 200px rgb(0, 0, 0);
+        position: relative;
+        z-index: 0;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+        font-family: 'Times New Roman', serif; /*Change font to Times New Roman*/
+        font-size: 3rem;
+        font-weight: bold;
+        transform: scale(1.2);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.7rem;
+            margin: 0;
+            padding: 0.5rem;
+            text-align: justify;
+        }
+        h2 {
+            font-family: 'Times New Roman', serif; /* Change font to Times New Roman */
+            color: #444343;
+            margin-top: 3rem;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease; /* Add transform transition */
+        }
+        h2:hover {
+            color: #000000;
+            /* transform: scale(1.1); Add zoom effect */
+        }
+        .content-container {
+            font-family: 'Times New Roman', serif; /* Change font to Times New Roman */
+            border-radius: 10px; /* Rounded corners */
+            padding: 1rem; /* Add padding for content containers */
+            border-bottom: 1px solid #ccc; /* Add border between content containers */
+            transition: background-color 0.3s ease, border-color 0.3s ease, filter 0.3s ease, transform 0.3s ease; /* Add transition for transform */
+        }
+        .content-container:hover {
+            background-color: #c8e0ec; /* Change background color on hover */
+            border-color: #ddd; /* Change border color on hover */
+            transform: scale(1.15); 
+            /* box-shadow: 0px 20px 200px rgb(93, 95, 93); */
+        }
+
+        p {
+        font-family: 'Times New Roman', serif;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        /* transition: transform 0.3s ease; */
+        text-align: justify; /* Add this line to justify text */
+        }
+        
+    </style>
+
+<script>
+    const lightColors = [
+    '#F1F3F5', // Light Gray
+    '#E3F2FD', // Light Blue
+    '#F0E68C', // Khaki
+    '#D3D3D3', // Light Gray
+    '#F5DEB3', // Wheat
+    '#F0FFFF', // Azure
+    '#FFDAB9', // Peach Puff
+    '#98FB98', // Pale Green
+    '#FFB6C1', // Light Pink
+    '#B0E0E6', // Powder Blue
+    '#FFA07A', // Light Salmon
+    '#E6E6FA', // Lavender
+    '#ED6B86', // Light Coral
+    '#FFE4E1', // Misty Rose
+    '#F0E68C', // Khaki
+    '#FFD700', // Gold
+    '#FFFACD', // Lemon Chiffon
+    '#90EE90', // Light Green
+    '#D8BFD8', // Thistle
+    '#FF69B4', // Hot Pink
+    '#ADD8E6', // Light Blue
+    '#FFA500', // Orange
+    '#FFE4B5', // Moccasin
+    '#AFEEEE', // Pale Turquoise
+    '#FAFAD2', // Light Goldenrod Yellow
+    '#F0E68C', // Khaki
+    '#D3D3D3', // Light Gray
+    '#FFC0CB', // Pink
+    '#98FB98', // Pale Green
+    '#E0FFFF', // Light Cyan
+    '#FFD700', // Gold
+    '#F0FFF0', // Honeydew
+    '#DB7093', // Pale Violet Red
+    '#FAF0E6', // Linen
+    '#F0E68C', // Khaki
+    '#FFA07A', // Light Salmon
+    '#98FB98', // Pale Green
+    '#FFF5EE', // Sea Shell
+    '#FF6347', // Tomato
+    '#FFFAF0', // Floral White
+    '#F0E68C', // Khaki
+];
+
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function adjustColorShade(color, factor) {
+        const hexToRGB = (hex) => {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            return { r, g, b };
+        };
+
+        const rgbColor = hexToRGB(color);
+        const newR = Math.min(255, Math.floor(rgbColor.r * factor));
+        const newG = Math.min(255, Math.floor(rgbColor.g * factor));
+        const newB = Math.min(255, Math.floor(rgbColor.b * factor));
+
+        return `rgb(${newR}, ${newG}, ${newB})`;
+    }
+
+    function getRandomLightColor() {
+        const randomIndex = Math.floor(Math.random() * lightColors.length);
+        return lightColors[randomIndex];
+    }
+
+    function changeBackgroundColor(element) {
+        const lightColor = getRandomLightColor();
+        const darkerColor = adjustColorShade(lightColor, 0.9);
+
+        document.body.style.backgroundColor = lightColor;
+    }
+
+    function applyBlur() {
+    document.querySelector('.container').style.filter = 'blur(5px)'; // Apply blur filter to container
+    }
+
+    function removeBlur() {
+    document.querySelector('.container').style.filter = 'none'; // Remove blur filter from container
+    }
+
+    function resetBackgroundColor(element) {
+            element.style.backgroundColor = 'white'; // Reset background color on mouseout
+    }
+
+    const contentContainers = document.querySelectorAll('.content-container');
+        contentContainers.forEach(container => {
+            container.addEventListener('mouseover', function () {
+                changeBackgroundColor(this);
+            });
+            container.addEventListener('mouseout', function () {
+                resetBackgroundColor(this);
+            });
+        });
+    
+</script>
+
+</head>
+
+<body>
+    <header onmouseover="applyBlur()" onmouseout="removeBlur()">
+        <h1>Enigma!</h1>
+        <p>Who am I?</p>
+    </header>
+    <div class="container">
+        <!-- Add the welcoming container here -->
+        <div class="welcome-container">
+            <h1>Hello Buddy!</h1>
+        </div>
+        
+
+        <div class="content-container" onmouseover="changeBackgroundColor(this)">
+            <h2 onmouseover="changeBackgroundColor(this)">About Me</h2>
+            <div class="hidden-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores cum sequi quis tenetur natus nisi, dignissimos officiis ea nihil omnis consectetur consequuntur exercitationem voluptas earum fugit aut ad cupiditate modi nemo? Unde, repellendus quasi distinctio aliquam incidunt fuga doloremque accusantium. Perspiciatis repudiandae ut a id? Sint molestiae necessitatibus architecto explicabo voluptas nulla porro velit? </div>
+        </div>
+        
+        <div class="content-container" onmouseover="changeBackgroundColor(this)">
+            <h2 onmouseover="changeBackgroundColor(this)">Academic Pursuits</h2>
+            <div class="hidden-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, aut quo expedita culpa architecto libero. Esse minus excepturi sunt tenetur libero iusto adipisci qui perferendis molestiae a laboriosam, recusandae vel? Non blanditiis molestiae officia eveniet doloribus facere nemo quam tempora accusamus maxime, est obcaecati dolore, odio sint commodi aspernatur fugit numquam maiores et perferendis dolores ea? Debitis, perferendis. Fugiat quasi, quo velit sit quisquam consequuntur quae excepturi?</div>
+        </div>
+        
+        <div class="content-container" onmouseover="changeBackgroundColor(this)">
+            <h2 onmouseover="changeBackgroundColor(this)">Projects</h2>
+            <div class="hidden-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae repellendus quam deleniti laborum ex rerum non exercitationem nam ab esse provident iste, corrupti unde praesentium excepturi eius tempore perspiciatis cum laboriosam ea, illo dicta officiis similique labore. In numquam repellendus unde? Alias accusamus distinctio ratione possimus quibusdam.</div>
+        </div>
+        
+        <div class="content-container" onmouseover="changeBackgroundColor(this)">
+            <h2 onmouseover="changeBackgroundColor(this)">Interests</h2>
+            <div class="hidden-content">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt rem a earum voluptatum eius iusto, debitis deserunt commodi culpa fugit modi asperiores repudiandae aliquam reprehenderit, consectetur explicabo sit doloremque inventore ex perspiciatis dolorum in? Eius veritatis maiores voluptate ipsa necessitatibus dolores laborum quae reiciendis nesciunt suscipit, aut provident ex impedit labore tenetur mollitia ducimus nobis quaerat vero eum! Accusamus inventore hic accusantium recusandae?</div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
